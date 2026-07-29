@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0px 10px 30px black;
+}
+
+img {
+  margin-left: 10px;
+}
+
+.buttons {
+  margin-right: 10px;
+}
+
+.links {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+nav a:hover {
+  color: red;
+}
+
+nav a:focus-visible {
+  font-size: large;
+  color: red;
+}
+
+.hamburger {
+  display: none;
+}
+
+.close-ham {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .links {
+    display: none;
+  }
+  button {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  nav {
+    justify-content: space-between;
+  }
+  .open {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "logo hamburger" "drawer drawer";
+  }
+  #logo {
+    grid-area: logo;
+    justify-self: start;
+  }
+
+  .open div#link {
+    grid-area: drawer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #button {
+    grid-area: hamburger;
+    justify-self: end;
+  }
+
+  .open .close-ham {
+    display: block;
+  }
+
+  .open .hamburger {
+    display: none;
+  }
+
+  .close-ham svg {
+    width: 30px;
+    height: 30px;
+  }
+  nav a:focus-within {
+    padding: 10px;
+    border: 2px solid red;
+  }
+}
