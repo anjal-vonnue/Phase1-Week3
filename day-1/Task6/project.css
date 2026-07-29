@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+
+body {
+  padding: 30px;
+}
+
+.title {
+  height: 70px;
+  text-align: center;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.project-grid > div {
+  border: 5px solid black;
+}
+
+.pro-1 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.pro-2 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.featured {
+  display: flex;
+  flex-direction: row;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+}
+.tags p {
+  padding: 5px;
+  background-color: aqua;
+  margin-bottom: 10px;
+}
+
+.featured img {
+  width: 90%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.not-featured {
+  display: flex;
+  flex-direction: column;
+}
+
+.not-featured img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.content {
+  padding: 20px;
+}
+
+.wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+}
+
+.wrapper:hover .overlay {
+  transform: translateX(0);
+}
+
+.links {
+  display: flex;
+  gap: 50px;
+}
