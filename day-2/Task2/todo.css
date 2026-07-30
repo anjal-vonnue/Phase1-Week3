@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  margin: none;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+div.button {
+  height: 30px;
+  width: 120px;
+  background-color: gold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  gap: 10px;
+}
+
+#todo-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 30px;
+}
