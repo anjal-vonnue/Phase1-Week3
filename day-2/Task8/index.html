@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LightHouse Gallery</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="image_container">
+      <img src="https://picsum.photos/id/237/200/300" class="image" />
+      <img src="https://picsum.photos/id/238/200/300" class="image" />
+      <img src="https://picsum.photos/id/239/200/300" class="image" />
+      <img src="https://picsum.photos/id/23/200/300" class="image" />
+      <img src="https://picsum.photos/id/241/200/300" class="image" />
+      <img src="https://picsum.photos/id/242/200/300" class="image" />
+    </div>
+
+    <div id="lightbox_container" class="lightbox_container close">
+      <div class="close_button" onclick="closeLightBox()" id="close_button">
+        close
+      </div>
+      <div class="prev" onclick="showPrev()" id="prev_button">prev</div>
+      <div id="lightbox" class="lightbox">
+        <img src="" class="lightbox_image" />
+      </div>
+      <div class="next" onclick="showNext()" id="next_button">next</div>
+    </div>
+  </body>
+</html>
