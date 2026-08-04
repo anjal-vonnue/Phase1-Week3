@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Full Registration Form</title>
+    <meta
+      name="description"
+      content="Full Registration Form - Every input Type"
+    />
+    <meta charset="UTF-8" />
+    <script src="form.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <form id="registration_form">
+        <h1>Full Registration Form</h1>
+
+        <fieldset>
+          <legend>Personal Details</legend>
+          <p id="test">
+            <label for="name">Name*: </label>
+            <input type="text" id="name" name="name" required />
+            <span></span>
+          </p>
+          <p>
+            <label for="email">Email*: </label>
+            <input id="email" type="email" name="email" required />
+            <span></span>
+          </p>
+          <p>
+            <label for="phone">Phone*: </label>
+            <input id="phone" type="tel" name="phone" required />
+            <span></span>
+          </p>
+          <p>
+            <label for="dob">Date of Birth*: </label>
+            <input id="dob" type="date" name="dob" required />
+            <span></span>
+          </p>
+          <p>
+            <label for="time_of_dob">Time of Birth</label>
+            <input id="time_of_dob" type="time" name="time_of_dob" />
+            <span></span>
+          </p>
+
+          <p>
+            <label for="luck">What is your lucky number?</label>
+            <input id="luck" type="number" name="luck" />
+            <span></span>
+          </p>
+
+          <p>
+            <label for="website">Enter your Website link: </label>
+            <input id="website" type="url" name="website" />
+            <span></span>
+          </p>
+
+          <p>
+            <label for="picture">Upload Your Profile Picture*: </label>
+            <input id="picture" type="file" name="picture" required />
+            <span></span>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Account</legend>
+          <p>
+            <label for="username">Username*: </label>
+            <input
+              id="username"
+              type="text"
+              pattern="[A-Za-z0-9_]{3,20}"
+              minlength="3"
+              maxlength="20"
+              name="username"
+              required
+            />
+            <span></span>
+          </p>
+          <p>
+            <label for="password">Password*: </label>
+            <input
+              id="password"
+              type="password"
+              aria-describedby="pass-rules"
+              name="password"
+              required
+            />
+            <span></span>
+          </p>
+          <p id="pass-rules">Must be at least 8 characters</p>
+          <p>
+            <label for="confirm_pass">Confirm Password*: </label>
+            <input
+              id="confirm-pass"
+              type="password"
+              name="confirm_pass"
+              required
+            />
+            <span></span>
+          </p>
+
+          <p>
+            <label for="month">Month of Creating Account: </label>
+            <input id="month" type="month" name="month" />
+            <span></span>
+          </p>
+          <p>
+            <label for="week">Specify the Week: </label>
+            <input id="week" type="week" name="week" />
+            <span></span>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Preferences</legend>
+          <p>
+            <label for="notifications">Allow Notifications</label>
+            <input id="notifications" type="radio" name="notifications" />
+            <span></span>
+          </p>
+
+          <p>
+            <label for="skills">Skill Range (1-10)*: </label>
+            <input
+              type="range"
+              id="skills"
+              min="1"
+              max="10"
+              name="skills"
+              required
+            />
+            <span></span>
+          </p>
+
+          <p>
+            <label for="pfp-color">Choose a Profile Color</label>
+            <input id="pfp-color" type="color" name="pfp-color" />
+          </p>
+          <p>
+            <label for="sub">Subscribe to Newsletters</label>
+            <input type="checkbox" id="sub" name="sub" />
+            <span></span>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Job Details</legend>
+          <p>
+            <label for="job_title">Job Title*: </label>
+            <input
+              id="job_title"
+              type="text"
+              list="job-list"
+              name="job_title"
+              required
+            />
+
+            <datalist id="job-list">
+              <option value="FrontendEngineer"></option>
+              <option value="Backend Engineer"></option>
+              <option value="DevOps Engineer"></option>
+              <option value="Product Engineer"></option>
+              <option value="Data Scientist"></option>
+              <option value="Graphic Designer"></option>
+              <option value="Software Developer"></option>
+              <option value="Maintainer"></option>
+            </datalist>
+            <span></span>
+          </p>
+          <p>
+            <label for="join">Date of Joining*: </label>
+            <input id="join" type="datetime-local" name="join" required />
+            <span></span>
+          </p>
+        </fieldset>
+        <br />
+
+        <button type="submit">Submit Form</button>
+        <button type="reset">Reset Form</button>
+      </form>
+    </main>
+  </body>
+</html>
