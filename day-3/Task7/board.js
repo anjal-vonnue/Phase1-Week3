@@ -4,6 +4,9 @@ let tasks;
 let dltButton;
 let dragTask = null;
 
+let keyboardTask = null;
+let currentColumn = 0;
+
 function saveState() {
   const container = document.querySelector(".container");
   localStorage.setItem("board", container.innerHTML);
@@ -30,6 +33,8 @@ function liAssign() {
 
   tasks.forEach((task) => {
     task.draggable = true;
+
+    task.addEventListener("keydown", handleKeyboard);
 
     task.addEventListener("dragstart", (e) => {
       e.target.id = "dragged-task";
@@ -60,7 +65,6 @@ function render() {
   console.log("inside render");
 
   columns = document.querySelectorAll(".task-column");
-  //   tasks = document.querySelectorAll(".task");
   dltButton = document.querySelectorAll(".button_delete");
   addButtons = document.querySelectorAll(".button_add");
 
@@ -92,30 +96,6 @@ function render() {
     });
   });
 
-  //   dltButton.forEach((dltBtn) => {
-  //     console.log("delete");
-
-  //     dltBtn.addEventListener("click", () => {
-  //       const dltLi = dltBtn.closest("li");
-  //       dltLi.remove();
-  //       saveState();
-  //     });
-  //   });
-
-  //   tasks.forEach((task) => {
-  //     task.draggable = true;
-
-  //     task.addEventListener("dragstart", (e) => {
-  //       task.id = "dragged-task";
-  //       dragTask = task;
-  //     });
-
-  //     task.addEventListener("dragend", (e) => {
-  //       task.id = "";
-  //       saveState();
-  //     });
-  //   });
-
   columns.forEach((column) => {
     column.addEventListener("dragenter", (e) => {
       e.preventDefault();
@@ -143,12 +123,54 @@ console.log("addButtons", addButtons);
 
 loadState();
 
-window.addEventListener("keydown", (e) => {
-  e.preventDefault();
-  console.log(e.code);
-});
+function handleKeyboard(e) {
+  const task = e.currentTarget;
+  console.log(task);
 
-window.addEventListener("keyup", (e) => {
-  e.preventDefault();
-  console.log(e.code);
-});
+  switch (e.code) {
+    case "Space":
+      e.preventDefault();
+
+      if (!keyboardTask) {
+        keyboardTask = task;
+        const parentColumn = task.closest(".task-column");
+        currentColumn = [...columns].indexOf(parentColumn);
+      } else {
+        keyboardTask = null;
+        saveState();
+      }
+      break;
+
+    case "ArrowRight":
+      if (!keyboardTask) return;
+
+      e.preventDefault();
+
+      if (currentColumn < columns.length - 1) {
+        currentColumn++;
+
+        columns[currentColumn]
+          .querySelector(".tasks")
+          .appendChild(keyboardTask);
+
+        keyboardTask.focus();
+      }
+      break;
+
+    case "ArrowLeft":
+      if (!keyboardTask) return;
+
+      e.preventDefault();
+
+      if (currentColumn > 0) {
+        currentColumn--;
+
+        columns[currentColumn]
+          .querySelector(".tasks")
+          .appendChild(keyboardTask);
+
+        keyboardTask.focus();
+      }
+      break;
+  }
+}
