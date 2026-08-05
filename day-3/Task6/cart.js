@@ -1,5 +1,16 @@
 //link: https://stackoverflow.com/questions/3396088/how-do-i-remove-an-object-from-an-array-with-javascript
+//link: https://stackoverflow.com/questions/22844560/check-if-object-value-exists-within-a-javascript-array-of-objects-and-if-not-add
+//link: https://refactoring.guru/design-patterns/observer
+//link: https://www.geeksforgeeks.org/system-design/observer-pattern-set-1-introduction/
 
+let observer = [];
+function addObserver(fn) {
+  observer.push(fn);
+}
+
+function notifyObservers() {
+  observer.forEach((fn) => fn());
+}
 class Cart {
   constructor(items, coupon) {
     this.items = items;
@@ -7,7 +18,28 @@ class Cart {
   }
 
   addItem(name, price) {
-    let newItems = [...this.items, { name, price, number: 1 }];
+    const hasItem = this.items.some((item) => item.name === name);
+    let newItems;
+    if (hasItem) {
+      // newItems = [...this.items, { name, price, number: number + 1 }];
+
+      newItems = this.items.map((item) => {
+        if (item.name === name) {
+          console.log("item name:", item.name);
+          console.log("item number:", item.number);
+
+          return {
+            name: item.name,
+            price: item.price,
+            number: item.number + 1,
+          };
+        } else {
+          return item;
+        }
+      });
+    } else {
+      newItems = [...this.items, { name, price, number: 1 }];
+    }
 
     return new Cart(newItems, this.coupon);
   }
@@ -39,8 +71,8 @@ class Cart {
 
   applyCoupon(code) {
     // console.log("number: ", Number(code));
-    this.coupon = Number(code);
-    let newCart = new Cart(this.items, this.coupon);
+    // this.coupon = Number(code);
+    let newCart = new Cart(this.items, Number(code));
     // console.log("code: ", this.coupon);
 
     return newCart;
@@ -72,6 +104,7 @@ function logCart(newCart) {
 
   // console.log("histroy: ", history);
   // console.log("=================");
+  // render();
 }
 
 function addItem(name, price) {
@@ -86,18 +119,17 @@ function addItem(name, price) {
 function addQuantity() {
   const productName = document.getElementById("product-name").value;
   const productQuantity = document.getElementById("product-quantity").value;
-  let newCart;
+
   if (productName && productQuantity) {
     console.log("product name:", productName);
     console.log("product q:", productQuantity);
-    newCart = cart.updateQuantity(productName, productQuantity);
+    const newCart = cart.updateQuantity(productName, productQuantity);
     console.log("addQuantity: ", newCart);
+    logCart(newCart);
+
+    updatePrice();
+    render();
   }
-
-  logCart(newCart);
-
-  updatePrice();
-  render();
 }
 
 function removeItem(name) {
@@ -126,11 +158,15 @@ function applyCoupon() {
 
 function undo() {
   if (history.length > 0) {
+    console.log("before undo: ", cart);
+
     cart = history.pop();
     console.log("history cart: ", cart);
   }
 
   updatePrice();
+  console.log("undo cart:", cart);
+
   render();
 }
 
