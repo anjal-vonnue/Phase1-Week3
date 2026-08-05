@@ -11,6 +11,7 @@ function addObserver(fn) {
 function notifyObservers() {
   observer.forEach((fn) => fn());
 }
+
 class Cart {
   constructor(items, coupon) {
     this.items = items;
@@ -95,8 +96,19 @@ class Cart {
   }
 }
 
-let cart = new Cart([], 0);
+let savedCart = JSON.parse(localStorage.getItem("cart"));
+console.log(savedCart);
+
+// let cart = new Cart([], 0);
+if (savedCart) {
+  cart = new Cart(savedCart.items, savedCart.coupon);
+} else {
+  cart = new Cart([], 0);
+}
+
 let history = [];
+
+addObserver(render);
 
 function logCart(newCart) {
   history.push(cart);
@@ -104,7 +116,14 @@ function logCart(newCart) {
 
   // console.log("histroy: ", history);
   // console.log("=================");
-  // render();
+  updatePrice();
+  localStorage.setItem(
+    "cart",
+    JSON.stringify({ items: cart.items, coupon: cart.coupon }),
+  );
+  console.log(localStorage.getItem("cart"));
+
+  notifyObservers();
 }
 
 function addItem(name, price) {
@@ -112,8 +131,8 @@ function addItem(name, price) {
   console.log(newCart);
   // console.log("=================");
   logCart(newCart);
-  updatePrice();
-  render();
+  // updatePrice();
+  // render();
 }
 
 function addQuantity() {
@@ -127,8 +146,8 @@ function addQuantity() {
     console.log("addQuantity: ", newCart);
     logCart(newCart);
 
-    updatePrice();
-    render();
+    // updatePrice();
+    // render();
   }
 }
 
@@ -138,8 +157,8 @@ function removeItem(name) {
   const newCart = cart.removeItem(name);
   logCart(newCart);
 
-  updatePrice();
-  render();
+  // updatePrice();
+  // render();
 }
 
 function applyCoupon() {
@@ -152,8 +171,8 @@ function applyCoupon() {
 
   console.log(cart);
 
-  updatePrice();
-  render();
+  // updatePrice();
+  // render();
 }
 
 function undo() {
@@ -166,8 +185,12 @@ function undo() {
 
   updatePrice();
   console.log("undo cart:", cart);
+  localStorage.setItem(
+    "cart",
+    JSON.stringify({ items: cart.items, coupon: cart.coupon }),
+  );
 
-  render();
+  notifyObservers();
 }
 
 // addItem("banana", 250);
@@ -191,7 +214,7 @@ function updatePrice() {
 }
 
 function render() {
-  console.log(cart.items);
+  // console.log(cart.items);
   const cartContainer = document.getElementById("cart-container");
   cartContainer.innerHTML = "";
 
@@ -202,4 +225,8 @@ function render() {
             <button onclick="removeItem('${item.name}')">Remove</button>
           </div>`;
   }
+
+  updatePrice();
 }
+
+render();
