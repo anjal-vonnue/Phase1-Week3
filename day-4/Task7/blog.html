@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Page</title>
+    <link rel="stylesheet" href="blog.css" />
+    <script src="blog.js" defer></script>
+  </head>
+  <body>
+    <h1>Infinte scroll</h1>
+    <div class="post-container" id="post-container">
+      <!-- <article class="post">
+        <header><h3>aut amet sed</h3></header>
+        <p>
+          libero voluptate eveniet aperiam sed\nsunt placeat suscipit
+          molestias\nsimilique fugit nam natus\nexpedita consequatur consequatur
+          dolores quia eos et placeat
+        </p>
+      </article> -->
+    </div>
+
+    <div class="spinner-div" id="spinner-div"></div>
+
+    <div class="error" id="error">
+      <p>Failed to load posts</p>
+      <button id="retry-button">retry</button>
+    </div>
+
+    <div class="max" id="max">
+      <p>all posts are loaded</p>
+    </div>
+    <div class="sentinel-div" id="sentinel-div"></div>
+  </body>
+</html>
