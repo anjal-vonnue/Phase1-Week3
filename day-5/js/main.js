@@ -4,6 +4,10 @@ import {
   addKeyboardtToAccordion,
 } from "./components/accordion.js";
 import { themeToggle } from "./components/darkMode.js";
+import {
+  addBackToTop,
+  addScrollAnimationToIndex,
+} from "./components/progress.js";
 
 let htmlRoot;
 let localTheme;
@@ -24,3 +28,7 @@ accordionOnLoad();
 addChangeEventToAccordion();
 
 addKeyboardtToAccordion();
+
+addScrollAnimationToIndex();
+
+addBackToTop();
