@@ -10,6 +10,9 @@ export function addLightBox() {
   let imageIndex = 0;
   let intialTouchX, finalTouchX;
 
+  if (images.length === 0) {
+    return;
+  }
   nextButton.addEventListener("click", (e) => {
     showNext();
   });

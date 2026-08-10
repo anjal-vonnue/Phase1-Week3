@@ -409,3 +409,48 @@ nav a:focus-visible {
     display: none;
   }
 }
+
+/* TOAST COMPONENT */
+
+#toast {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  font-size: 16px;
+  z-index: 1000;
+  margin-left: 200px;
+  top: 40px;
+}
+
+#toast.show {
+  visibility: visible;
+  animation:
+    fadein 0.5s,
+    fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+  from {
+    top: 40px;
+    opacity: 0;
+  }
+  to {
+    top: 80px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    top: 80px;
+    opacity: 1;
+  }
+  to {
+    top: 40px;
+    opacity: 0;
+  }
+}

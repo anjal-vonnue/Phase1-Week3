@@ -52,6 +52,7 @@
     <script src="js/main.js" type="module"></script>
   </head>
   <body>
+    <div id="toast">FORM SUBMITTED SUCCESSFULLY</div>
     <div class="progress-bar">
       <div class="inner-bar"></div>
     </div>
@@ -105,7 +106,7 @@
 
     <main>
       <br />
-      <form class="form-container">
+      <form class="form-container" id="form-container">
         <fieldset>
           <legend>Send Us A Message</legend>
           <div class="input-wrapper">
@@ -118,8 +119,9 @@
               placeholder=""
             />
             <label for="name">Name*:</label>
-            <span class="success-msg">valid</span>
-            <span class="error-msg">please enter a valid input</span>
+            <!-- <span class="success-msg">valid</span>
+            <span class="error-msg">please enter a valid input</span> -->
+            <span class="msg-span"></span>
           </div>
           <div class="input-wrapper">
             <input
@@ -131,6 +133,7 @@
               placeholder=""
             />
             <label for="email">Email*: </label>
+            <span class="msg-span"></span>
           </div>
           <div class="input-wrapper">
             <input
@@ -143,6 +146,7 @@
               placeholder=""
             />
             <label for="phone">Phone*: </label>
+            <span class="msg-span"></span>
           </div>
           <div class="input-wrapper">
             <label for="dept" aria-label="Department"></label>
@@ -162,13 +166,14 @@
           <div class="input-wrapper">
             <textarea
               id="msg"
-              name="msg"
+              name="message"
               required
               maxlength="500"
               class="input-field"
               placeholder=""
             ></textarea>
             <label for="msg">Message: </label>
+            <span class="msg-span"></span>
           </div>
           <div class="check-container">
             <label for="newletter">Subscribe to Newletter? </label>
@@ -181,7 +186,9 @@
           </div>
         </fieldset>
         <div class="button-container">
-          <button type="submit" class="form-button">Send Message</button>
+          <button type="submit" class="form-button" id="form-button">
+            Send Message
+          </button>
           <button type="reset" class="form-button">Reset Form</button>
         </div>
       </form>
