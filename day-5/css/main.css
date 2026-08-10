@@ -24,6 +24,13 @@
   }
 }
 
+.services-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .backToTop {
   display: none;
   position: fixed;

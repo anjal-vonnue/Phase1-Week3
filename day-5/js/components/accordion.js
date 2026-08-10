@@ -1,15 +1,16 @@
-const inputElement = document.querySelectorAll(".input-tag");
+export function accordionOnLoad() {
+  const inputElement = document.querySelectorAll(".input-tag");
+  const localState = localStorage.getItem("acc-state");
+  if (localState !== null) {
+    const saveInput = inputElement[localState];
+    saveInput.checked = true;
 
-const localState = localStorage.getItem("acc-state");
-
-if (localState !== null) {
-  const saveInput = inputElement[localState];
-  saveInput.checked = true;
-
-  expandFn({ target: saveInput }, Number(localState));
+    expandFn({ target: saveInput }, Number(localState));
+  }
 }
 
 function expandFn(e, i) {
+  const inputElement = document.querySelectorAll(".input-tag");
   let divElement = e.target.closest("div").querySelector("div.content");
   if (e.target.checked) {
     console.log("checked");
@@ -38,40 +39,50 @@ function expandFn(e, i) {
   }
 }
 
-for (let i = 0; i < inputElement.length; i++) {
-  inputElement[i].addEventListener("change", (e) => {
-    expandFn(e, i);
-  });
+export function addChangeEventToAccordion() {
+  const inputElement = document.querySelectorAll(".input-tag");
+
+  for (let i = 0; i < inputElement.length; i++) {
+    inputElement[i].addEventListener("change", (e) => {
+      expandFn(e, i);
+    });
+  }
 }
 
-for (let i = 0; i < inputElement.length; i++) {
-  inputElement[i].addEventListener("keydown", (e) => {
-    let keyPressed = e.key;
-    console.log(keyPressed);
+export function addKeyboardtToAccordion() {
+  const inputElement = document.querySelectorAll(".input-tag");
 
-    if (keyPressed == "ArrowDown") {
-      //   let header = inputElement[i + 1].closest("div").querySelector("label");
-      //   header.style.outline = "3px solid black";
-      inputElement[i + 1].focus();
-    }
-    if (keyPressed == "ArrowUp") {
-      //   let header = inputElement[i - 1].closest("div").querySelector("label");
-      //   header.style.outline = "3px solid black";
-      inputElement[i - 1].focus();
-    }
+  for (let i = 0; i < inputElement.length; i++) {
+    inputElement[i].addEventListener("keydown", (e) => {
+      let keyPressed = e.key;
+      console.log(keyPressed);
 
-    if (keyPressed == "Home") {
-      inputElement[0].focus();
-    }
+      if (keyPressed == "ArrowDown") {
+        //   let header = inputElement[i + 1].closest("div").querySelector("label");
+        //   header.style.outline = "3px solid black";
+        inputElement[i + 1].focus();
+      }
+      if (keyPressed == "ArrowUp") {
+        //   let header = inputElement[i - 1].closest("div").querySelector("label");
+        //   header.style.outline = "3px solid black";
+        inputElement[i - 1].focus();
+      }
 
-    if (keyPressed == "End") {
-      inputElement[inputElement.length - 1].focus();
-    }
+      if (keyPressed == "Home") {
+        e.preventDefault();
+        inputElement[0].focus();
+      }
 
-    if (keyPressed == "Enter") {
-      inputElement[i].checked = !inputElement[i].checked;
+      if (keyPressed == "End") {
+        e.preventDefault();
+        inputElement[inputElement.length - 1].focus();
+      }
 
-      expandFn(e, i);
-    }
-  });
+      if (keyPressed == "Enter") {
+        inputElement[i].checked = !inputElement[i].checked;
+
+        expandFn(e, i);
+      }
+    });
+  }
 }

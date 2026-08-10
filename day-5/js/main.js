@@ -1,3 +1,8 @@
+import {
+  accordionOnLoad,
+  addChangeEventToAccordion,
+  addKeyboardtToAccordion,
+} from "./components/accordion.js";
 import { themeToggle } from "./components/darkMode.js";
 
 let htmlRoot;
@@ -13,3 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeBtn = document.getElementById("theme-btn");
   themeBtn.addEventListener("click", themeToggle);
 });
+
+accordionOnLoad();
+
+addChangeEventToAccordion();
+
+addKeyboardtToAccordion();
