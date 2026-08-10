@@ -4,6 +4,7 @@ import {
   addKeyboardtToAccordion,
 } from "./components/accordion.js";
 import { themeToggle } from "./components/darkMode.js";
+import { addLightBox } from "./components/lightbox.js";
 import { navigationDrawer } from "./components/nav.js";
 import {
   addBackToTop,
@@ -35,3 +36,5 @@ addScrollAnimationToIndex();
 addBackToTop();
 
 navigationDrawer();
+
+addLightBox();
