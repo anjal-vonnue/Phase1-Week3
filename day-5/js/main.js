@@ -11,6 +11,7 @@ import {
   addBackToTop,
   addScrollAnimationToIndex,
 } from "./components/progress.js";
+import { fetchRecentPost } from "./components/recentPost.js";
 import {
   fetchPosts,
   filterByCategory,
@@ -108,8 +109,30 @@ if (fictionalSection) {
 }
 
 const currentPage = window.location.href;
+console.log(currentPage);
 
 if (currentPage.includes("/team.html")) {
   console.log("inside team");
   fetchTeam();
+
+  const teamRetryButton = document.getElementById("retry-button");
+  teamRetryButton.addEventListener("click", (e) => {
+    fetchTeam();
+  });
+}
+
+if (
+  currentPage.includes("/index.html") ||
+  currentPage === "http://127.0.0.1:5500/day-5/"
+) {
+  fetchRecentPost();
+
+  const recentRetryButton = document.getElementById("retry-button");
+  console.log("retry-buton:", recentRetryButton);
+
+  recentRetryButton.addEventListener("click", (e) => {
+    console.log("cliked");
+
+    fetchRecentPost();
+  });
 }

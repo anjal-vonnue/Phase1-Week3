@@ -6,7 +6,7 @@ export function addScrollAnimationToIndex() {
 
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log(entry.target);
+        // console.log(entry.target);
         entry.target.classList.add("visible");
       } else {
         entry.target.classList.remove("visible");
