@@ -1,7 +1,29 @@
 import { fetchJson } from "../utils.js";
 
+function showSkeleton(visible) {
+  const skeletonContainer = document.getElementById("skeleton-services");
+  visible
+    ? (skeletonContainer.style.display = "block")
+    : (skeletonContainer.style.display = "none");
+}
+
+function showError(visible, error = "") {
+  const errorContainer = document.getElementById("error-services");
+  const errorText = document.getElementById("error-text");
+
+  if (visible) {
+    errorContainer.style.display = "block";
+    errorText.textContent = error;
+  } else {
+    errorContainer.style.display = "none";
+    errorText.textContent = error;
+  }
+}
+
 export async function fetchPosts() {
   try {
+    showError(false);
+    showSkeleton(true);
     console.log("inside fetch posts");
 
     const result = await fetchJson(
@@ -23,7 +45,11 @@ export async function fetchPosts() {
       fictionalServices.appendChild(div);
     });
   } catch (error) {
+    showSkeleton(false);
     console.log("error while fetching posts");
+    showError(true, error);
+  } finally {
+    showSkeleton(false);
   }
 }
 

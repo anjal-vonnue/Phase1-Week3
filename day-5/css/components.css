@@ -478,3 +478,41 @@ nav a:focus-visible {
   max-width: 300px;
   background-color: #3b3434;
 }
+
+.skeleton-services {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+}
+
+.skeleton-card {
+  padding: 10px;
+  max-width: 300px;
+  background-color: #3b3434;
+}
+
+.skeleton-card p:nth-child(1) {
+  background-size: 100px 100%;
+  width: 280px;
+  height: 20px;
+  background: linear-gradient(to right, #e6e6e6 5%, #cccccc 25%, #e6e6e6 35%);
+  animation: shimmer 2s linear infinite;
+  animation-direction: alternate;
+}
+
+.skeleton-card p:nth-child(2) {
+  background-size: 100px 100%;
+  height: 90px;
+  background: linear-gradient(to right, #e6e6e6 5%, #cccccc 25%, #e6e6e6 35%);
+  animation: shimmer 2s linear infinite;
+  animation-direction: alternate;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -100px 100%;
+  }
+  to {
+    background-position: 100px 100%;
+  }
+}

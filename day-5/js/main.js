@@ -98,4 +98,9 @@ if (fictionalSection) {
     console.log(e.target.value);
     filterByCategory(e.target.value);
   });
+
+  const fictionalRetryButton = document.getElementById("retry-button");
+  fictionalRetryButton.addEventListener("click", (e) => {
+    fetchPosts();
+  });
 }
