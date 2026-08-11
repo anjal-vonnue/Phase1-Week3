@@ -15,7 +15,6 @@ import { fetchRecentPost } from "./components/recentPost.js";
 import {
   fetchPosts,
   filterByCategory,
-  filterPosts,
   searchPost,
 } from "./components/services.js";
 import { fetchTeam } from "./components/team.js";
@@ -54,7 +53,7 @@ if (form) {
       formValidator.validate(input);
     });
   }
-  textArea.addEventListener("blur", (e) => {
+  textArea.addEventListener("blur", () => {
     formValidator.validate(textArea);
   });
 
@@ -92,7 +91,7 @@ if (fictionalSection) {
   const fictionalSearch = document.getElementById("fictional-search");
   const debounceSearch = debounce(searchPost, 300);
 
-  fictionalSearch.addEventListener("input", (e) => {
+  fictionalSearch.addEventListener("input", () => {
     debounceSearch();
   });
 
@@ -103,7 +102,7 @@ if (fictionalSection) {
   });
 
   const fictionalRetryButton = document.getElementById("retry-button");
-  fictionalRetryButton.addEventListener("click", (e) => {
+  fictionalRetryButton.addEventListener("click", () => {
     fetchPosts();
   });
 }
@@ -116,7 +115,7 @@ if (currentPage.includes("/team.html")) {
   fetchTeam();
 
   const teamRetryButton = document.getElementById("retry-button");
-  teamRetryButton.addEventListener("click", (e) => {
+  teamRetryButton.addEventListener("click", () => {
     fetchTeam();
   });
 }
@@ -130,7 +129,7 @@ if (
   const recentRetryButton = document.getElementById("retry-button");
   console.log("retry-buton:", recentRetryButton);
 
-  recentRetryButton.addEventListener("click", (e) => {
+  recentRetryButton.addEventListener("click", () => {
     console.log("cliked");
 
     fetchRecentPost();

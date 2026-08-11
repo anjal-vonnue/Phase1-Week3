@@ -72,6 +72,8 @@ export async function fetchTeam() {
       markTeam.appendChild(figure);
     });
   } catch (err) {
+    console.log("error while fetching team data,", err);
+
     showSkeleton(false);
     showError(true, "errow while fetching team data");
   } finally {

@@ -54,28 +54,32 @@ class FormValidator {
       console.log(key);
 
       switch (key) {
-        case "required":
+        case "required": {
           if (!value) {
             return "This value is Required";
           }
           break;
-        case "email":
+        }
+        case "email": {
           if (!value) return "This value is Required";
-          let pattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+          let pattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
           const regexEmail = new RegExp(pattern);
           if (!value.match(regexEmail)) {
             return "email doest match";
           }
           break;
-        case "maxLength":
+        }
+        case "maxLength": {
           if (value.length > rules[key])
             return `The Value must be ${rules[key]} characters`;
           break;
-        case "minLength":
+        }
+        case "minLength": {
           if (value.length < rules[key])
             return `The Value must be greater than ${rules[key]} characters`;
           break;
-        case "pattern":
+        }
+        case "pattern": {
           const regex = new RegExp(rules[key]);
           console.log(regex);
 
@@ -86,8 +90,8 @@ class FormValidator {
             return "Enter a Valid input";
           }
           break;
-
-        case "match":
+        }
+        case "match": {
           const eleMatchValue = document.querySelector(
             `[name=${rules[key]}]`,
           ).value;
@@ -99,12 +103,14 @@ class FormValidator {
           } else {
             return null;
           }
-          break;
-        case "custom":
+          // break;
+        }
+        case "custom": {
           const title = rules.custom(value);
           return title;
 
-          break;
+          // break;
+        }
       }
     }
     return null;
@@ -137,17 +143,3 @@ class FormValidator {
 const form = document.getElementById("form_container");
 
 export const formValidator = new FormValidator(form, rules);
-
-// const form = document.getElementById("form_container");
-// const inputs = document.querySelectorAll("input.input-field");
-
-// for (const input of inputs) {
-//   input.addEventListener("blur", () => {
-//     formValidator.validate(input);
-//   });
-// }
-
-// form.addEventListener("submit", () => {
-//   event.preventDefault();
-//   formValidator.validateAll(inputs);
-// });

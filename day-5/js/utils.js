@@ -9,7 +9,7 @@ export async function fetchJson(url) {
 
 export function debounce(callback, delay) {
   let timer;
-  return function (...args) {
+  return function () {
     clearTimeout(timer);
 
     timer = setTimeout(() => {

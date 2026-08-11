@@ -1,5 +1,4 @@
 export function navigationDrawer() {
-  const hamburger = document.getElementById("hamburger");
   // const navigation = document.querySelector("#nav");
   const navigation = document.getElementById("project-nav");
   const linkDiv = document.querySelector("#link.links");

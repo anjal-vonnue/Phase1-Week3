@@ -48,7 +48,7 @@ export async function fetchRecentPost() {
       recentPostContainer.appendChild(article);
     });
   } catch (error) {
-    console.log("error while fetching recent posts");
+    console.log("error while fetching recent posts", error);
     showSkeleton(false);
     showError(true, "errow while fetching recent posts");
   }

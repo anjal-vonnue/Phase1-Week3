@@ -13,15 +13,15 @@ export function addLightBox() {
   if (images.length === 0) {
     return;
   }
-  nextButton.addEventListener("click", (e) => {
+  nextButton.addEventListener("click", () => {
     showNext();
   });
 
-  prevButton.addEventListener("click", (e) => {
+  prevButton.addEventListener("click", () => {
     showPrev();
   });
 
-  closeButton.addEventListener("click", (e) => {
+  closeButton.addEventListener("click", () => {
     closeLightBox();
   });
 
@@ -34,7 +34,7 @@ export function addLightBox() {
   }
 
   function openLightBox(index, imgSrc) {
-    let lightboxImage = (lightbox.querySelector("img").src = imgSrc);
+    lightbox.querySelector("img").src = imgSrc;
     lightboxContainer.classList.remove("close");
   }
 
@@ -57,7 +57,7 @@ export function addLightBox() {
   }
 
   function closeLightBox() {
-    let lightboxImage = (lightbox.querySelector("img").src = "");
+    lightbox.querySelector("img").src = "";
     lightboxContainer.classList.add("close");
   }
 
