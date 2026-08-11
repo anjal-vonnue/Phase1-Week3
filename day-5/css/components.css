@@ -179,6 +179,7 @@ thead th {
   width: 400px;
   flex-direction: column;
   border: 5px solid black;
+  margin-bottom: 50px;
 }
 
 .acc-container > div {
@@ -453,4 +454,27 @@ nav a:focus-visible {
     top: 40px;
     opacity: 0;
   }
+}
+
+.fictional-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fictional-services {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 30px;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.fictional-cards {
+  padding: 10px;
+  max-width: 300px;
+  background-color: #3b3434;
 }

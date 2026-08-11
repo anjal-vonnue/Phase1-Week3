@@ -11,7 +11,13 @@ import {
   addBackToTop,
   addScrollAnimationToIndex,
 } from "./components/progress.js";
-import { showToast } from "./utils.js";
+import {
+  fetchPosts,
+  filterByCategory,
+  filterPosts,
+  searchPost,
+} from "./components/services.js";
+import { debounce, showToast } from "./utils.js";
 
 let htmlRoot;
 let localTheme;
@@ -73,5 +79,23 @@ if (form) {
         span.textContent = "";
       }
     }, 1500);
+  });
+}
+
+const fictionalSection = document.getElementById("fictional-container");
+if (fictionalSection) {
+  fetchPosts();
+
+  const fictionalSearch = document.getElementById("fictional-search");
+  const debounceSearch = debounce(searchPost, 300);
+
+  fictionalSearch.addEventListener("input", (e) => {
+    debounceSearch();
+  });
+
+  const filterButton = document.getElementById("filter-category");
+  filterButton.addEventListener("change", (e) => {
+    console.log(e.target.value);
+    filterByCategory(e.target.value);
   });
 }
