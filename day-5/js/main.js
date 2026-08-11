@@ -17,6 +17,7 @@ import {
   filterPosts,
   searchPost,
 } from "./components/services.js";
+import { fetchTeam } from "./components/team.js";
 import { debounce, showToast } from "./utils.js";
 
 let htmlRoot;
@@ -32,12 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeBtn = document.getElementById("theme-btn");
   themeBtn.addEventListener("click", themeToggle);
 });
-
-accordionOnLoad();
-
-addChangeEventToAccordion();
-
-addKeyboardtToAccordion();
 
 addScrollAnimationToIndex();
 
@@ -83,6 +78,13 @@ if (form) {
 }
 
 const fictionalSection = document.getElementById("fictional-container");
+
+accordionOnLoad();
+
+addChangeEventToAccordion();
+
+addKeyboardtToAccordion();
+
 if (fictionalSection) {
   fetchPosts();
 
@@ -103,4 +105,11 @@ if (fictionalSection) {
   fictionalRetryButton.addEventListener("click", (e) => {
     fetchPosts();
   });
+}
+
+const currentPage = window.location.href;
+
+if (currentPage.includes("/team.html")) {
+  console.log("inside team");
+  fetchTeam();
 }
