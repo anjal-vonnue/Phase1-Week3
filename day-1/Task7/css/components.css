@@ -1,0 +1,173 @@
+.features-section > article {
+  padding: var(--padding);
+  border: 1px dashed var(--black);
+}
+
+.testimonials-section > blockquote {
+  padding: var(--padding);
+  border: 1px dashed var(--black);
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: var(--padding);
+  gap: 10px;
+}
+
+.card-container > article {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  min-height: 100%;
+  padding: 10px;
+  border: 1px dashed var(--black);
+}
+
+@media screen and (width <= 480px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== SERVICES PAGE ===== */
+
+.service-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: var(--padding);
+  gap: var(--gap);
+}
+
+.service-section > article {
+  padding: var(--padding);
+  border: 1px dashed var(--black);
+  min-height: 100%;
+}
+
+.service-section article:hover {
+  padding: var(--padding);
+  box-shadow: 10px 10px 30px var(--color-accent);
+  min-height: 100%;
+}
+
+.features-list {
+  padding: var(--padding);
+}
+
+@media screen and (width <= 480px) {
+  .service-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .service-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  margin-bottom: var(--padding);
+}
+
+@media screen and (width <= 480px) {
+  table {
+    width: 300px;
+  }
+}
+
+table {
+  margin: var(--padding);
+  width: 80%;
+}
+
+th,
+td {
+  padding: var(--padding);
+  border: 1px dashed var(--black);
+}
+
+thead th {
+  top: 0;
+  position: sticky;
+  z-index: 10;
+  background-color: var(--color-primary-tint-100);
+}
+
+.row-color {
+  background-color: #f2f2f2;
+}
+
+.row-color-b {
+  background-color: #3b3434;
+  color: white;
+}
+
+.calltoaction {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+  background-color: var(--color-accent);
+  color: var(--color-text);
+  padding: var(--padding);
+  align-items: center;
+}
+
+.call-text h2 {
+  margin-bottom: 15px;
+  background-color: transparent;
+}
+
+.call-text,
+.call-text p {
+  color: #121212;
+  background-color: transparent;
+}
+
+.call-form {
+  display: grid;
+  gap: 15px;
+  background: transparent;
+}
+
+.call-form label {
+  color: white;
+  background: transparent;
+}
+
+.call-form input,
+.call-form textarea {
+  padding: 12px;
+  border: 1px solid var(--black);
+  background: transparent;
+}
+
+.call-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.call-form button {
+  padding: 12px;
+  background-color: var(--color-secondary);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid var(--black);
+  font-weight: bolder;
+}
+
+.call-form button:hover {
+  background: #00c0d9;
+  color: var(--black);
+}
+
+.recommended {
+  background-color: var(--color-error);
+}
