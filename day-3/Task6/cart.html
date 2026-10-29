@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="./cart.css" />
+    <script src="cart.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Shopping Cart</h1>
+      <div>
+        <div class="products">
+          <h2>Products</h2>
+          <div class="button-container">
+            <button onclick="addItem('Apple', 200)">
+              Add Apple Rs:200 per kg
+            </button>
+            <button onclick="addItem('Orange', 120)">
+              Add Orange Rs:120 per kg
+            </button>
+            <button onclick="addItem('Banana', 30)">
+              Add Banana Rs: 30 per kg
+            </button>
+          </div>
+
+          <div class="quantity-container">
+            <input
+              placeholder="product name"
+              type="text"
+              list="product-suggestion"
+              id="product-name"
+            />
+            <datalist id="product-suggestion">
+              <option value="Apple">Apple</option>
+              <option value="Orange">Orange</option>
+              <option value="Banana">Banana</option>
+            </datalist>
+            <input placeholder="quantity" type="number" id="product-quantity" />
+            <button onclick="addQuantity()">Submit</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart">
+        <h2>Cart</h2>
+        <div id="cart-container" class="cart-container">
+          <!-- <div class="item">
+            <p class="item-name">Banana</p>
+            <p class="item-quantity">Quantity: 4</p>
+            <button>Remove</button>
+          </div> -->
+        </div>
+        <p>Price: <span id="total-price">0</span></p>
+      </div>
+
+      <div class="coupon">
+        <h2>Coupon</h2>
+        <p>
+          <input id="coupon-input" class="coupon-input-class" type="number" />
+          <button onclick="applyCoupon()">Apply Coupon</button>
+        </p>
+      </div>
+      <button class="undo-btn" onclick="undo()">Undo</button>
+    </div>
+  </body>
+</html>

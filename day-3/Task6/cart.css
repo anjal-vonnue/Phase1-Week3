@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  /* gap: 30px; */
+  max-width: 700px;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button-container button {
+  padding: 5px;
+  background-color: gold;
+  border: 2px solid black;
+}
+
+.quantity-container {
+  display: flex;
+  gap: 10px;
+}
+
+.quantity-container input {
+  flex: 1;
+}
+
+.quantity-container button {
+  background-color: green;
+  color: antiquewhite;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  border: 1px dashed darkblue;
+}
+
+.item p {
+  padding: 10px;
+}
+
+.item-quantity {
+  background-color: aquamarine;
+}
+
+.item button {
+  border: none;
+  background-color: aqua;
+}
+
+.item button:hover {
+  border: none;
+  background-color: red;
+  color: white;
+}
+.item-name {
+  flex: 1;
+}
