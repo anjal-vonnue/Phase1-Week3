@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <script src="weather.js" defer></script>
+    <link rel="stylesheet" href="weather.css" />
+  </head>
+  <body>
+    <div class="weather-container">
+      <div class="display-container">
+        <h1>
+          Live Weather:<br />
+          <span id="city">Berlin</span>
+        </h1>
+        <div class="display-text">
+          <h2>Temperature</h2>
+          <p class="details"><span id="temp"></span>°C</p>
+          <p class="skeleton"></p>
+          <h2>Wind Speed</h2>
+          <p class="details"><span id="speed"></span>km/h</p>
+          <p class="skeleton"></p>
+          <h2>Weather Description</h2>
+          <p class="details"><span id="desc"></span></p>
+          <p class="skeleton"></p>
+        </div>
+      </div>
+      <div class="search-container">
+        <h2>Search City</h2>
+        <form class="input-container">
+          <label for="city">City: </label>
+          <input
+            id="city-input"
+            type="text"
+            name="city"
+            required
+            placeholder="Berlin"
+          />
+          <button type="submit" id="search-button">Search</button>
+        </form>
+        <ul id="list-contanier"></ul>
+        <p class="skeleton"></p>
+      </div>
+      <span id="error" class="error">/span>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Profile Viewer</title>
+    <link rel="stylesheet" href="github.css" />
+    <script src="./github.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Github</h1>
+      <form>
+        <label for="github-id">Search User: </label>
+        <input type="text" required id="github-id" />
+        <button type="submit" id="search-button">Submit</button>
+      </form>
+      <div class="error" id="error">
+        <p><span id="error-text"></span></p>
+      </div>
+      <div class="github-container" id="github-card">
+        <img id="image" />
+        <div>
+          <div class="user-details">
+            <p>name: <span id="name"></span></p>
+            <p>bio: <span id="bio"></span></p>
+            <p>location: <span id="location"></span></p>
+            <p>followers: <span id="followers"></span></p>
+            <p>following: <span id="following"></span></p>
+          </div>
+          <div class="repo-details" id="repo-container">
+            <!-- <div class="repo">
+              <p>Repo Name: <span> All kerala bustiming</span></p>
+              <p>Stars: <span>3</span></p>
+              <p>Desc: <span>aewrwerawera</span></p>
+              <p>lang: <span>javascript</span></p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

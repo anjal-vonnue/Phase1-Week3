@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  /* border: 0; */
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.github-container {
+  padding: 10px;
+  border: 1px solid black;
+  width: fit-content;
+  display: none;
+  gap: 10px;
+}
+
+.github-container img {
+  object-fit: cover;
+}
+
+.repo-details {
+  border: 1px solid darkblue;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.repo {
+  padding: 5px;
+  border: 1px dashed cadetblue;
+  background-color: antiquewhite;
+}
+
+.error {
+  display: none;
+  padding: 10px;
+  border: 1px solid red;
+  color: red;
+}
