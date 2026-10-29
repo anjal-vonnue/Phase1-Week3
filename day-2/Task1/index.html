@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <h1>Bubbling and Capturing</h1>
+    <div class="blue capture">
+      <div class="gold capture">
+        <div class="red capture"></div>
+      </div>
+    </div>
+    <h1>Stop Propagation</h1>
+    <div class="blue propagation">
+      <div class="gold propagation">
+        <div class="red propagation"></div>
+      </div>
+    </div>
+    <h1>stopImmediatePropagation</h1>
+    <div class="blue stopImm">
+      <div class="gold"></div>
+    </div>
+    <h1>Form Submit</h1>
+    <form id="form">
+      <label for="name">Name*: </label>
+      <input id="name" name="name" type="text" required />
+      <label for="email">Email*: </label>
+      <input id="email" name="email" type="email" required />
+      <button type="submit">Submit</button>
+    </form>
+
+    <h1>Anchor Click</h1>
+    <a href="https://www.google.com" id="google-anchor"
+      >Click here to enter google</a
+    >
+  </body>
+</html>

@@ -1,0 +1,93 @@
+.close {
+  display: none;
+}
+
+.lightbox_container {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(15, 1, 1, 0.938);
+}
+
+.lightbox {
+  position: relative;
+
+  height: 600px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: auto;
+  padding: 0;
+  width: 70%;
+}
+
+.lightbox_image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.prev {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 100px;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.close_button {
+  cursor: pointer;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.outline {
+  outline: 1px solid red;
+}
+
+@media screen and (width <= 425px) {
+  .next {
+    display: none;
+  }
+  .prev {
+    display: none;
+  }
+}
